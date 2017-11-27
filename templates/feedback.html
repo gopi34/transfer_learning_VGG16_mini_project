@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>JV_V1.0</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="https://getbootstrap.com/docs/4.0/examples/narrow-jumbotron/narrow-jumbotron.css" rel="stylesheet">
+ 
+ <style>
+.contact-form{ margin-top:15px;}
+.contact-form .textarea{ min-height:220px; resize:none;}
+.form-control{ box-shadow:none; border-color:#eee; height:49px;}
+.form-control:focus{ box-shadow:none; border-color:#020c8d;}
+.form-control-feedback{ line-height:50px;}
+.main-btn{ background:#020c8d; border-color:#020c8d; color:#fff;}
+.main-btn:hover{ background:#020c8d;color:#fff;}
+.form-control-feedback {
+line-height: 50px;
+top: 0px;
+}
+</style>
+</head>
+ 
+<body>
+    
+        <div class="container">
+          <header class="header clearfix">
+            <nav>
+              <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Home</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/feedback">Feedback<span class="sr-only">(current)</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact">Contact</a>
+                </li>
+              </ul>
+            </nav>
+            <h3 class="text-muted">Jarvis Vision</h3>
+          </header>
+        <main>
+            <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+            <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+            <div class="container">
+                <div class="row">
+                    <form role="form" id="contact-form" class="contact-form">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="form-control" name="Name" autocomplete="off" id="Name" placeholder="Name">
+                                      </div>
+                                  </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <input type="email" class="form-control" name="email" autocomplete="off" id="email" placeholder="E-mail">
+                                      </div>
+                                  </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                      <div class="form-group">
+                                        <textarea class="form-control textarea" rows="3" name="Message" id="Message" placeholder="Message"></textarea>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-12">
+                                        <!-- <form action="/" method="post">
+                                            <button nclass="btn main-btn pull-right" onclick="submit_feedback()" name="forwardBtn" href="/submit_feedback" type="submit">Submit feedback</button>
+                                        </form> -->
+                              <button type="submit" class="btn main-gbtn pull-right" onclick="submit_feedback()" href="/submit_feedback">Send a message</button>
+                              </div>
+                              </div>
+                            </form>
+                </div>
+            </div>
+        </main>
+          
+    
+          <footer class="footer">
+            <p>&copy; gopinath balu 2017</p>
+          </footer>
+    
+        </div> <!-- /container -->
+      </body>
+      <script>
+      $('#contact-form').bootstrapValidator({
+//        live: 'disabled',
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            Name: {
+                validators: {
+                    notEmpty: {
+                        message: 'The Name is required and cannot be empty'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required'
+                    },
+                    emailAddress: {
+                        message: 'The email address is not valid'
+                    }
+                }
+            },
+            Message: {
+                validators: {
+                    notEmpty: {
+                        message: 'The Message is required and cannot be empty'
+                    }
+                }
+            }
+        }
+    });
+    // function submit_feedback(){
+    // alert("Your feedback was submitted successfully ...");
+    // }
+    </script>
+    </html>
